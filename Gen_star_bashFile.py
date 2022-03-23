@@ -1,3 +1,5 @@
+# check line 17 and 24 if the naming index is correct
+
 out_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/star_Out_0323'
 input_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/data/StaceyB_01_SOL'
 
@@ -11,13 +13,15 @@ import os
 sample_list = []
 for fi in os.listdir(input_dir):
   if fi.endswith('trimmed.fastq.gz'):
-    sample_list.append('_'.join(fi.split("_")[0:3]))
+    # every time need to check if the naming is correct
+    sample_list.append('_'.join(fi.split("_")[0:4]))
     
 sample_list = list(set(sample_list))
 
 
 for sample in sample_list:
-  sample_id = sample.split("_")[0]
+  # every time need to check if the naming is correct
+  sample_id = ("_").join(sample.split("_")[0:2])
   sample_fi_r1 = sample+"_R1_001_trimmed.fastq.gz"
   sample_fi_r2 = sample+"_R2_001_trimmed.fastq.gz"
   commandLine = "STAR --runThreadN 12 --genomeDir /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/assembly/genome --readFilesCommand zcat --readFilesIn ${input_dir}/"+sample_fi_r1+" ${input_dir}/"+sample_fi_r2+" --outSAMtype BAM SortedByCoordinate --outFileNamePrefix "+sample_id+" --sjdbGTFfile /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/annotation/Gmax_508_Wm82.a4.v1.gene_exons.gff3 --sjdbGTFtagExonParentTranscript Parent --sjdbOverhang "+readLength
