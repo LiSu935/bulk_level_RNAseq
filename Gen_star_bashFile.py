@@ -1,5 +1,7 @@
-out_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/PhloemXylem7221/star_Out_0323'
-input_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/PhloemXylem7221/data/StaceyG_29_SOL'
+out_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/star_Out_0323'
+input_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/data/StaceyB_01_SOL'
+
+# In case of reads of varying length, the ideal value is max(ReadLength)-1. In most cases, the default value of 100 will work as well as the ideal value.
 readLength = "100"
 
 
@@ -30,7 +32,7 @@ for sample in sample_list:
   "#SBATCH --mem-per-cpu=48G\n"\
   "#SBATCH --time 2-00:00\n"\
   "## labels and outputs\n"\
-  "#SBATCH --job-name=jaehyo-%j.out\n"\
+  "#SBATCH --job-name=Cuong-%j.out\n"\
   "#SBATCH --output="+sample_id+"_star-%j.out  # %j is the unique jobID\n"\
   'echo "### Starting at: $(date) ###"\n'\
   "\n\n"\
