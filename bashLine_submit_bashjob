@@ -1,0 +1,1 @@
+for filename in ./run_star_*.sh; do  sbatch $filename ; done
