@@ -7,7 +7,7 @@ bash_tail = 'echo "### Ending at: $(date) ###"'
 
 import os 
 sample_list = []
-for fi in os.listdir("."):
+for fi in os.listdir(input_dir):
   if fi.endswith('trimmed.fastq.gz'):
     sample_list.append('_'.join(fi.split("_")[0:3]))
     
@@ -36,13 +36,13 @@ for sample in sample_list:
   "\n\n"\
   "module load miniconda3\n"\
   "source activate rnaseq\n"\
-  "module load star/star-2.7.4a-gcc-10.1.0\n"\
+  "module load star/2.7.9a\n"\
   "input_dir='"+input_dir+"'\n"\
   "cd "+out_dir+"\n\n"
 
   with open(out_dir+"/run_star_"+sample_id+".sh", "w") as f:
     f.write(bash_header+'\n')
-    f.wirte(commandLine+'\n')
+    f.write(commandLine+'\n')
     f.write(bash_tail)
   f.close()
   
