@@ -18,7 +18,7 @@ for sample in sample_list:
   sample_id = sample.split("_")[0]
   sample_fi_r1 = sample+"_R1_001_trimmed.fastq.gz"
   sample_fi_r2 = sample+"_R2_001_trimmed.fastq.gz"
-  commandLine = "STAR --runThreadN 12 --genomeDir /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/assembly/genome --readFilesCommand zcat ${input_dir}/"+sample_fi_r1+" ${input_dir}/"+sample_fi_r2+" --outSAMtype BAM SortedByCoordinate --outFileNamePrefix "+sample_id+" --sjdbGTFfile /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/annotation/Gmax_508_Wm82.a4.v1.gene_exons.gff3 --sjdbGTFtagExonParentTranscript Parent --sjdbOverhang "+readLength
+  commandLine = "STAR --runThreadN 12 --genomeDir /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/assembly/genome --readFilesCommand zcat --readFilesIn ${input_dir}/"+sample_fi_r1+" ${input_dir}/"+sample_fi_r2+" --outSAMtype BAM SortedByCoordinate --outFileNamePrefix "+sample_id+" --sjdbGTFfile /group/xulab/Su_Li/Jaehyo/SoybeanJGI_V4/phytozome/Gmax/Wm82.a4.v1/annotation/Gmax_508_Wm82.a4.v1.gene_exons.gff3 --sjdbGTFtagExonParentTranscript Parent --sjdbOverhang "+readLength
   bash_header = "#!/bin/bash\n"\
   "#-------------------------------------------------------------------------------\n"\
   "#  SBATCH CONFIG\n"\
