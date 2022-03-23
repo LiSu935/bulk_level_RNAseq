@@ -30,7 +30,7 @@ for sample in sample_list:
   "#SBATCH --mem-per-cpu=48G\n"\
   "#SBATCH --time 2-00:00\n"\
   "## labels and outputs\n"\
-  "#SBATCH --job-name=spavg-%j.out\n"\
+  "#SBATCH --job-name=jaehyo-%j.out\n"\
   "#SBATCH --output="+sample_id+"_star-%j.out  # %j is the unique jobID\n"\
   'echo "### Starting at: $(date) ###"\n'\
   "\n\n"\
@@ -43,7 +43,7 @@ for sample in sample_list:
   with open(out_dir+"/run_star_"+sample_id+".sh", "w") as f:
     f.write(bash_header+'\n')
     f.write(commandLine+'\n')
-    f.write(bash_tail)
+    f.write(bash_tail+'\n')
   f.close()
   
     
