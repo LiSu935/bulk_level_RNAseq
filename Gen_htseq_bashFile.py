@@ -10,8 +10,8 @@
 
 
 
-out_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/PhloemXylem7221/htseq_Out_0323'
-input_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/PhloemXylem7221/star_Out_0323'
+out_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/htseq_Out_0323'
+input_dir = '/storage/htc/joshilab/Su_Li/GaryLab/Cuong_RNAseq/flowering_twoAllele/star_Out_0323'
 
 
 bash_tail = 'echo "### Ending at: $(date) ###"'
