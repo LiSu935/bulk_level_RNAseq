@@ -132,3 +132,40 @@ outPut_all_sig(qlf_aaBB_vs_WT, prefix="Com_205aabb_vs_213AAbb")
 qlf_aaBB_vs_WT = glmQLFTest(fit, contrast=my.contrasts[,"aaBB_vs_AAbb"])
 #topTags(qlf_Phloem_21d)
 outPut_all_sig(qlf_aaBB_vs_WT, prefix="Com_219aaBB_vs_213AAbb")
+
+
+
+# ================================================================================ #
+# sessionInfo()
+#R version 4.0.4 (2021-02-15)
+#Platform: x86_64-apple-darwin17.0 (64-bit)
+#Running under: macOS Big Sur 10.16
+
+#Matrix products: default
+#LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+#locale:
+#[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+#attached base packages:
+#[1] stats     graphics  grDevices utils     datasets 
+#[6] methods   base     
+
+#other attached packages:
+#[1] writexl_1.4.0  dplyr_1.0.8    statmod_1.4.36
+#[4] edgeR_3.32.1   limma_3.46.0  
+
+#loaded via a namespace (and not attached):
+ #[1] Rcpp_1.0.8.3        magrittr_2.0.2     
+ #[3] tidyselect_1.1.2    lattice_0.20-45    
+ #[5] R6_2.5.1            rlang_1.0.2        
+ #[7] fansi_1.0.3         tools_4.0.4        
+ #[9] grid_4.0.4          xfun_0.30          
+#[11] tinytex_0.37        utf8_1.2.2         
+#[13] cli_3.2.0           ellipsis_0.3.2     
+#[15] tibble_3.1.6        lifecycle_1.0.1    
+#[17] crayon_1.5.1        BiocManager_1.30.16
+#[19] purrr_0.3.4         vctrs_0.3.8        
+#[21] glue_1.6.2          compiler_4.0.4     
+#[23] pillar_1.7.0        generics_0.1.2     
+#[25] locfit_1.5-9.4      pkgconfig_2.0.3    
