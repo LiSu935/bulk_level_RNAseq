@@ -41,5 +41,6 @@ for file in os.listdir(input_dir):
       
       
     #regulators = list(set(tf_list) & set(gene_names))
+    regulators = tf_list
     VIM2 = GENIE3(data, gene_names = gene_names, regulators = regulators)
     get_link_list(VIM2,gene_names=gene_names,regulators = regulators, file_name = input_dir + file.split('.')[0]+'_ranking.txt')
