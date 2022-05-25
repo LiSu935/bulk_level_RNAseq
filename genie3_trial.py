@@ -1,5 +1,6 @@
 import os
 import sys
+import numpy as np
 
 sys.path.append(os.path.abspath("/storage/htc/joshilab/Su_Li/tools_related/genie3"))
 
@@ -26,11 +27,19 @@ for file in os.listdir(input_dir):
   if file.endswith('_edited.txt'):
 
     data = loadtxt(input_dir+file, skiprows = 1)
+    # remove all 0 genes
+    idx = np.argwhere(np.all(data[..., :] == 0, axis=0))
+    data = np.delete(data, idx, axis=1)
+    idx_list = idx.flatten().tolist()
+    
     f = open(input_dir+file)
     gene_names = f.readline()
     f.close()
     gene_names = gene_names.rstrip('\n').split('\t')
-
-    regulators = list(set(tf_list) & set(gene_names))
+    for i in reversed(idx_list):
+      del gene_names[i]
+      
+      
+    #regulators = list(set(tf_list) & set(gene_names))
     VIM2 = GENIE3(data, gene_names = gene_names, regulators = regulators)
     get_link_list(VIM2,gene_names=gene_names,regulators = regulators, file_name = input_dir + file.split('.')[0]+'_ranking.txt')
