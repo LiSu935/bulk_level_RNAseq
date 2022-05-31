@@ -1,8 +1,11 @@
 # this is a trial for genie3 R version
+# Source vignettes: https://bioconductor.org/packages/devel/bioc/vignettes/GENIE3/inst/doc/GENIE3.html
 
-source("/storage/htc/joshilab/Su_Li/tools_related/genie3/GENIE3.R")
+#source("/storage/htc/joshilab/Su_Li/tools_related/genie3/GENIE3.R")
+# The GENIE3 group has written it into a Bioconductor package. Use the package. 
+library(GENIE3)
 
-expr.matrix = read.expr.matrix("/storage/htc/joshilab/Su_Li/tools_related/genie3/data.txt", form="rows.are.samples")
+expr.matrix = t(read.csv("/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/CortexPhloemXylem_Counts/Cortex_72h_Bj_edited.txt", sep = '\t'))
 expr.matrix = expr.matrix[rowSums(expr.matrix[])>0,]
 
 tf_df =  read.csv("/storage/htc/joshilab/Su_Li/GaryLab/Jaehyo_RNAseq/Gmax_TF/Gma_TF_list.txt", sep = '\t')
@@ -20,9 +23,10 @@ tf_list = unique(tf_df$Gene_ID)
 # ============================================================================================ # 
 # Restrict the candidate regulators to a subset of genes
 # ============================================================================================ # 
-regulators <- tf_list
+regulators <- intersect(tf_list, rownames(expr.matrix))
+
 set.seed(123)
-weightMat <- GENIE3(exprMatr, regulators=regulators)
+weightMat <- GENIE3(expr.matrix, regulators=regulators)
 
 # ============================================================================================ # 
 # Get the list of the regulatory links
