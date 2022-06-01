@@ -27,13 +27,13 @@ regulators <- intersect(tf_list, rownames(expr.matrix))
 
 set.seed(123)
 weightMat <- GENIE3(expr.matrix, regulators=regulators)
-
+print(dim(weightMat))
 # ============================================================================================ # 
 # Get the list of the regulatory links
 # ============================================================================================ # 
-linkList <- getLinkList(weightMat)
-print(dim(linkList))
-linkList <- getLinkList(weightMat, threshold=0.1)
+#linkList <- getLinkList(weightMat)
+#print(dim(linkList))
+linkList <- getLinkList(weightMat, threshold=0.001)
 print(dim(linkList))
 class(linkList)
 
