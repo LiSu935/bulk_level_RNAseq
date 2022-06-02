@@ -58,8 +58,8 @@ for (count_fi in list.files(path = input_dir))
     
     expr.matrix = t(read.csv(paste0(input_dir,count_fi),sep='\t'))
     expr.matrix = expr.matrix[rowSums(expr.matrix[])>0,]
-    run_genie3 = function(expr.matrix, fi_name, link_threshold=0.001)
-  }
+    run_genie3(expr.matrix, fi_name, link_threshold=0.001)
+    }
 
 }
 
