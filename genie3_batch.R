@@ -44,9 +44,11 @@ run_genie3 = function(expr.matrix, fi_name, link_threshold=0.001){
 
   linkList <- getLinkList(weightMat, threshold=link_threshold)
   print(dim(linkList))
+  
+  # filter the links to be 
 
   # write the results
-  write.table(linkList, file=paste(output_dir,fi_name,"_GENIE3linkList_", link_threshold,".txt",sep=""), row.names = TRUE, col.names = NA, sep="\t")
+  #write.table(linkList, file=paste(output_dir,fi_name,"_GENIE3linkList_", link_threshold,".txt",sep=""), row.names = TRUE, col.names = NA, sep="\t")
 
 }
 
@@ -58,7 +60,7 @@ for (count_fi in list.files(path = input_dir))
     
     expr.matrix = t(read.csv(paste0(input_dir,count_fi),sep='\t'))
     expr.matrix = expr.matrix[rowSums(expr.matrix[])>0,]
-    run_genie3(expr.matrix, fi_name, link_threshold=0.001)
+    run_genie3(expr.matrix, fi_name, link_threshold=0.005)
     }
 
 }
