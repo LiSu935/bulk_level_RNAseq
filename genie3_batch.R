@@ -48,7 +48,7 @@ run_genie3 = function(expr.matrix, fi_name, link_threshold=0.001){
   # filter the links to be 
 
   # write the results
-  #write.table(linkList, file=paste(output_dir,fi_name,"_GENIE3linkList_", link_threshold,".txt",sep=""), row.names = TRUE, col.names = NA, sep="\t")
+  write.table(linkList, file=paste(output_dir,fi_name,"_GENIE3linkList_", link_threshold,".txt",sep=""), row.names = TRUE, col.names = NA, sep="\t")
 
 }
 
