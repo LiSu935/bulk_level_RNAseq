@@ -23,7 +23,7 @@ def parsing_results(input_dir, fi_name):
     
     sorted_dic = sorted(dic_tf.items(), key=lambda x:len(x))
     for i, j in enumerate(sorted_dic):
-        if i <10:
+        if i <20:
             print(j[0]+'\t'+'\t'.join(j[1]))
         
     print("======== links end =================")
