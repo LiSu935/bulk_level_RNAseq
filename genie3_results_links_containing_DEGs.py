@@ -19,7 +19,7 @@ def parsing_results(input_dir, fi_name):
     prefix = '_'.join(fi_name.split('_')[:3])
     deg_prefix = '_'.join(fi_name.split('_')[:2])
     DEG_file = glob.glob(deg_dir+deg_prefix+"*.txt")[0]
-    deg_list = list(pd.read_table(deg_dir+DEG_file, header=0, sep='\t')['gene'])
+    deg_list = list(pd.read_table(DEG_file, header=0, sep='\t')['gene'])
 
     with open(output_dir+prefix+'_links_containing_degs.txt', 'w') as f:
         with open(input_dir+fi_name, 'r') as f1:
