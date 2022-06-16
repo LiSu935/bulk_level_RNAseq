@@ -13,9 +13,11 @@ def parsing_results(input_dir, fi_name):
             else:
                 line_list = line.rstrip().split('\t')[1:]
                 if line_list[0] not in dic_tf.keys():
-                    dic_tf[line_list[0]] = [(line_list[1], float(line_list[2]))]
+                    #dic_tf[line_list[0]] = [(line_list[1], float(line_list[2]))]
+                    dic_tf[line_list[0]] = [line_list[1][1:-1]]
                 else:
-                    dic_tf[line_list[0]].append((line_list[1], float(line_list[2])))
+                    #dic_tf[line_list[0]].append((line_list[1], float(line_list[2])))
+                    dic_tf[line_list[0]].append(line_list[1][1:-1])
 
     print(len(dic_tf))
     
