@@ -23,7 +23,7 @@ def parsing_results(input_dir, fi_name):
 
     with open(output_dir+prefix+'_links_containing_degs.txt', 'w') as f:
         with open(input_dir+fi_name, 'r') as f1:
-            for line in f:
+            for line in f1:
                 if line.startswith('""'):
                     continue
                 else:
