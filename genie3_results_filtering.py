@@ -19,7 +19,7 @@ def parsing_results(input_dir, fi_name):
 
     DEG_file = glob.glob(deg_dir+deg_prefix+"*.txt")[0]
 
-    deg_list = list(pd.read_table(deg_dir+DEG_file, header=0, sep='\t')['gene'])
+    deg_list = list(pd.read_table(DEG_file, header=0, sep='\t')['gene'])
 
     with open(input_dir+fi_name, 'r') as f:
         for line in f:
